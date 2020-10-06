@@ -1,0 +1,121 @@
+   
+        body                                /*Definições do design do corpo da página */
+        {
+            background-color: #f5f5f5;
+            font-family: Arial;             /* Estamos utilizando Arial pois essa fonte é 
+                                           padrão nos sistemas mais utilizados para acesso em rede comercialmente*/
+            font-size: 18px;
+            opacity: 3;
+        }
+        #topo                               /*Definições do design específicas para o topo da página */
+        {
+            text-align: center;
+            background-color: #ffffff;
+            color:#FFA500;
+            padding: 10px;
+            padding-bottom: 20px;
+            height: 350px;
+            border-radius: 15px;
+        }
+        #titulo
+        {
+            text-align: center;
+            background-color: #FFA500;
+            color: #ffffff;
+            padding: 2px;
+            border-radius: 15px;
+        }
+        #principal
+        {
+            display: grid;
+            grid-template-areas: "imagem texto";
+        }
+        #fotoobjetivo
+        {
+            border-radius: 90%;
+        }
+        #formulario
+        {
+            color: #FFA500;
+            background-color: #ffffff;
+            text-align: center;
+            font-size: 28px;
+            border-radius: 15px;
+            padding-bottom: 15px;
+        }
+        .objetivoimg
+        {
+            background-color:#FFA500;
+            padding: 6px;
+            border-radius: 15px;
+        }
+        .objetivo
+        {
+            background-color: #ffffff;
+            text-align: left;
+            font-size: 28px;
+            border-radius: 15px;
+        }
+        .objetivo h2
+        {
+            color: #FFA500;
+        }
+        .corpoInicio
+        {
+            text-align: center;
+        }
+        .corpoInicio img
+        {
+            border-radius: 15px;
+        }
+        .layout
+        {
+           text-align: center;
+           background-color:#FFA500;
+           color:#ffffff;
+           padding: 5px;
+           border-radius: 15px;
+            
+        }
+        .navegacao
+        {
+            color:#FFA500;
+            text-decoration: none;
+        }
+        .navegacao:hover
+        {
+            color:#0080ff;
+        }
+        h1                                  /*Formatação de cada tipo de título da página */
+        {
+            text-align: center;
+            font-size: 28px;
+            
+        }
+        h2
+        {
+            text-align: center;
+           /* text-shadow: 2px 1px 2px black; Não ficou bonito mas ainda vou testar*/
+            color:#0080ff;
+            font-size: 26px;
+        }
+        h3
+        {
+            text-align: left;
+        }
+        hr
+        {
+            max-width: 70%;
+        }
+        textarea
+        {
+            vertical-align: top;
+        }
+        nav
+        {
+            font-size: 24px;
+        }
+        label
+        {
+            color:#0080ff;
+        }
