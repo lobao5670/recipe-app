@@ -11,12 +11,14 @@
 </head>
 
 <script language="javascript" src="./javascript/servicos.js">
-    window.onload = () => {
+    function initialLoad(){
         filtrarPorIngredientePrincipal(carregarDadosTabela, '');
         listarIngredientes(carregarOpcoesIngredientes);
         listarAreas(carregarOpcoesLugares);
         listarCategorias(carregarOpcoesCategorias);
     }
+
+    document.addEventListener('DOMContentLoaded', initialLoad);
 </script>
 
 <body>
