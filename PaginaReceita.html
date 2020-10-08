@@ -34,13 +34,16 @@
     </div>
     <br>
     <div>
-        <div>
+        <div id="formFields"> <!-- Filtros para a apresentação das receitas-->
             <button class="receitaRecomendada" onclick="obterReceitaAleatoria(carregarDadosTabela)">Receba uma receita recomendada!</button>
+            <label for="Ingredientes">Ingrediente:</label>
             <select onchange="selecionarIngredientes(this.id)" name="Ingrediente Principal" id="Ingredientes"></select>
+            <label for="Categorias">Categoria:</label>
             <select onchange="selecionarCategorias(this.id)" name="Categoria" id="Categorias"></select>
+            <label for="Lugares">Lugar:</label>
             <select onchange="selecionarLugares(this.id)" name="Lugar" id="Lugares"></select>
         </div>
-        <table>
+        <table> <!-- Tabela das receitas-->
             <thead>
                 <tr>
                     <th id="thFoto">

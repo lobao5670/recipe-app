@@ -203,6 +203,10 @@ function obterReceitaAleatoria(callbackFunction) {
     get("https://www.themealdb.com/api/json/v1/1/random.php", callbackFunction);
 }
 
+/**
+ *      lida com o preenchimento das linhas do body da tabela dee receitas a partir
+ *      de dados retornados pelas demais funções.
+ */
 function carregarDadosTabela(dados) {
     let content = JSON.parse(dados);
     const tableBody = document.getElementById('tableData');
@@ -211,6 +215,12 @@ function carregarDadosTabela(dados) {
     for (let receita of content.meals) {
         var len = Object.keys(receita).length;
         if (len === 3) {
+            var thLugar = document.getElementById('thLugar');
+            thLugar.style.display = 'none';
+            var thVideo = document.getElementById('thVideo');
+            thVideo.style.display = 'none';
+            var thCategoria = document.getElementById('thCategoria');
+            thCategoria.innerText = 'Detalhes';
             dataHtml += `
                 <tr>
                     <td>
@@ -220,6 +230,13 @@ function carregarDadosTabela(dados) {
                     <td><text id="verMais" onclick="obterReceitaPeloId(carregarDadosTabela, ${receita.idMeal})">Ver Mais</text></td>
                 </tr>`;
         } else {
+            var thLugar = document.getElementById('thLugar');
+            thLugar.style.display = 'revert';
+            var thVideo = document.getElementById('thVideo');
+            thVideo.style.display = 'revert';
+            var thCategoria = document.getElementById('thCategoria');
+            thCategoria.innerText = 'Categoria';
+
             dataHtml += `
             <tr>
                 <td>
@@ -240,6 +257,9 @@ function carregarDadosTabela(dados) {
     tableBody.innerHTML = dataHtml;
 }
 
+/**
+ *      popula o seletor de ingredientes com as opções da API
+ */
 function carregarOpcoesIngredientes(dados) {
     let content = JSON.parse(dados);
     var ingredientes = document.getElementById('Ingredientes');
@@ -255,6 +275,9 @@ function carregarOpcoesIngredientes(dados) {
     }
 }
 
+/**
+ *      popula o seletor de lugares com as opções da API
+ */
 function carregarOpcoesLugares(dados) {
     let content = JSON.parse(dados);
     var lugares = document.getElementById('Lugares');
@@ -270,6 +293,9 @@ function carregarOpcoesLugares(dados) {
     }
 }
 
+/**
+ *      popula o seletor de categorias com as opções da API
+ */
 function carregarOpcoesCategorias(dados) {
     let content = JSON.parse(dados);
     var categorias = document.getElementById('Categorias');
@@ -285,6 +311,10 @@ function carregarOpcoesCategorias(dados) {
     }
 }
 
+/**
+ *      lida com a seleção do ingrediente principal
+ *      chama a função de busca pelas receitas na api e atualiza a tabela
+ */
 function selecionarIngredientes(_id) {
     var seletor = document.getElementById(_id);
 
@@ -293,6 +323,10 @@ function selecionarIngredientes(_id) {
 
 }
 
+/**
+ *      lida com a seleção do lugar
+ *      chama a função de busca pelas receitas na api e atualiza a tabela
+ */
 function selecionarLugares(_id) {
     var seletor = document.getElementById(_id);
 
@@ -301,6 +335,10 @@ function selecionarLugares(_id) {
 
 }
 
+/**
+ *      lida com a seleção do categoria
+ *      chama a função de busca pelas receitas na api e atualiza a tabela
+ */
 function selecionarCategorias(_id) {
     var seletor = document.getElementById(_id);
 
@@ -309,6 +347,9 @@ function selecionarCategorias(_id) {
 
 }
 
+/**
+ *      limpa os seletores
+ */
 function limparCampos(_id) {
     idList = ['Ingredientes','Categorias', 'Lugares']
     Array.from(idList).forEach(function(el){
