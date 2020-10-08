@@ -214,7 +214,7 @@ function carregarDadosTabela(dados) {
             dataHtml += `
                 <tr>
                     <td>
-                        <img src=${receita.strMealThumb} alt="Thumbnail" width="100" height="100">
+                        <img src=${receita.strMealThumb} alt="Thumbnail" width="100" height="100" id="fotoReceita">
                     </td>
                     <td>${receita.strMeal}</td>
                     <td><text id="verMais" onclick="obterReceitaPeloId(carregarDadosTabela, ${receita.idMeal})">Ver Mais</text></td>
@@ -223,14 +223,14 @@ function carregarDadosTabela(dados) {
             dataHtml += `
             <tr>
                 <td>
-                    <img src=${receita.strMealThumb} alt="Thumbnail" width="100" height="100">
+                    <img src=${receita.strMealThumb} alt="Thumbnail" width="100" height="100" id="fotoReceita">
                 </td>
                 <td>${receita.strMeal}</td>
                 <td>${receita.strCategory}</td>
                 <td>${receita.strArea}</td>
                 <td>
                     <a href=${receita.strYoutube}>
-                        <img src="./img/youtube.png" alt="YoutubeImage" width="50" height="30">
+                        <img src="./img/youtube.png" alt="YoutubeImage" width="100" height="60">
                     </a>
                 </td>
             </tr>`;

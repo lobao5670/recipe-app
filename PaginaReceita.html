@@ -10,7 +10,6 @@
     </title>
 </head>
 
-
 <script language="javascript" src="./javascript/servicos.js">
     window.onload = () => {
         filtrarPorIngredientePrincipal(carregarDadosTabela, '');
@@ -19,6 +18,7 @@
         listarCategorias(carregarOpcoesCategorias);
     }
 </script>
+
 <body>
     <div class="Interface">
 
@@ -42,7 +42,7 @@
     <br>
     <div>
         <div>
-            <button onclick="obterReceitaAleatoria(carregarDadosTabela)">Receba uma receita recomendada!</button>
+            <button class="receitaRecomendada" onclick="obterReceitaAleatoria(carregarDadosTabela)">Receba uma receita recomendada!</button>
             <select onchange="selecionarIngredientes(this.id)" name="Ingrediente Principal" id="Ingredientes"></select>
             <select onchange="selecionarCategorias(this.id)" name="Categoria" id="Categorias"></select>
             <select onchange="selecionarLugares(this.id)" name="Lugar" id="Lugares"></select>
@@ -50,19 +50,19 @@
         <table>
             <thead>
                 <tr>
-                    <th>
+                    <th id="thFoto">
                         Foto
                     </th>
-                    <th>
+                    <th id="thNome">
                         Nome
                     </th>
-                    <th>
+                    <th id="thCategoria">
                         Categoria
                     </th>
-                    <th>
+                    <th id="thLugar">
                         Lugar
                     </th>
-                    <th>
+                    <th id="thVideo">
                         Vídeo
                     </th>
                 </tr>

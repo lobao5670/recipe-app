@@ -141,3 +141,73 @@
         {
             padding: 1%;
         }
+
+        button
+        {
+            color: #FFFFFF;
+            background: #FFA500;
+            border: solid #FFA500 2px;
+            cursor: pointer;
+            text-align: center;
+        }
+        button:hover
+        {
+            border: solid #0080FF 2px;
+            background: #F19300;
+
+        }
+        button:active
+        {
+            outline: none;
+            background: #0080FF;
+            border: solid #FFA500 2px;
+        }
+        .receitaRecomendada
+        {
+            font-size: 16px;
+            padding: 10px 15px 10px 15px;
+            margin: 0px 5px 5px 15px;
+            border-radius: 8px;
+        }
+        select
+        {
+            color: #000;
+            background: #FFF;
+            border: solid #FFA500 2px;
+            cursor: auto;
+            text-align: center;
+        }
+        table
+        {
+            border-collapse: collapse;
+            margin: 30px 0px 20px 0px;
+        }
+        td, th
+        {
+            border-bottom: solid #FFA500 2px;
+        }
+        #fotoReceita
+        {
+            border: 2px double #FFA500;
+            border-radius: 20%;
+        }
+        #thFoto
+        {
+            width: 10%;
+        }
+        #thNome
+        {
+            width: 35;
+        }
+        #thCategoria
+        {
+            width: 22.5%;
+        }
+        #thLugar
+        {
+            width: 22.5%;
+        }
+        #thVideo
+        {
+            width: 10%;
+        }
