@@ -8,20 +8,11 @@
     <title>
         Receitas
     </title>
+    <script language="javascript" src="./javascript/servicos.js"></script>
 </head>
 
-<script language="javascript" src="./javascript/servicos.js">
-    function initialLoad(){
-        filtrarPorIngredientePrincipal(carregarDadosTabela, '');
-        listarIngredientes(carregarOpcoesIngredientes);
-        listarAreas(carregarOpcoesLugares);
-        listarCategorias(carregarOpcoesCategorias);
-    }
 
-    document.addEventListener('DOMContentLoaded', initialLoad);
-</script>
-
-<body>
+<body onload="listarIngredientes(carregarOpcoesIngredientes);listarAreas(carregarOpcoesLugares);listarCategorias(carregarOpcoesCategorias);filtrarPorIngredientePrincipal(carregarDadosTabela, '');">
     <div class="Interface">
 
         <header>                                                    <!-- Cabeçalho da página web contendo uma barra de navegação e uma imagem-->
