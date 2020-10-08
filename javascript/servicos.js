@@ -34,7 +34,7 @@ function listarCategoriasDetalhadas(callbackFunction) {
  * ]
  */
 function listarCategorias(callbackFunction) {
-    get("https://www.themealdb.com/api/json/v1/1/list.php?c=list", callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/list.php?c=list", callbackFunction);
 }
 
 /**
@@ -46,7 +46,7 @@ function listarCategorias(callbackFunction) {
  * ]
  */
 function listarAreas(callbackFunction) {
-    get("https://www.themealdb.com/api/json/v1/1/list.php?a=list", callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/list.php?a=list", callbackFunction);
 }
 
 /**
@@ -61,7 +61,7 @@ function listarAreas(callbackFunction) {
  *  ]
  */
 function listarIngredientes(callbackFunction) {
-    get("https://www.themealdb.com/api/json/v1/1/list.php?i=list", callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/list.php?i=list", callbackFunction);
 }
 
 /**
@@ -134,7 +134,7 @@ function listarReceitasPelaPrimeiraLetra(callbackFunction, letter) {
  *      igual o da funcao listarReceitasPelaPrimeiraLetra
  */
 function procurarReceitaPeloNome(callbackFunction, name) {
-    get("https://www.themealdb.com/api/json/v1/1/search.php?s=" + encodeURIComponent(name), callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/search.php?s=" + encodeURIComponent(name), callbackFunction);
 }
 
 /**
@@ -150,7 +150,7 @@ function procurarReceitaPeloNome(callbackFunction, name) {
  *  ]
  */
 function filtrarPorIngredientePrincipal(callbackFunction, main_ingredient) {
-    get("https://www.themealdb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(main_ingredient), callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(main_ingredient), callbackFunction);
 }
 
 /**
@@ -166,7 +166,7 @@ function filtrarPorIngredientePrincipal(callbackFunction, main_ingredient) {
  *  ]
  */
 function filtrarPorCategoria(callbackFunction, category) {
-    get("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + encodeURIComponent(category), callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + encodeURIComponent(category), callbackFunction);
 }
 
 /**
@@ -182,7 +182,7 @@ function filtrarPorCategoria(callbackFunction, category) {
  *  ]
  */
 function filtrarPorArea(callbackFunction, area) {
-    get("https://www.themealdb.com/api/json/v1/1/filter.php?a=" + encodeURIComponent(area), callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/filter.php?a=" + encodeURIComponent(area), callbackFunction);
 }
 
 /**
@@ -192,7 +192,7 @@ function filtrarPorArea(callbackFunction, area) {
  *      igual o da funcao listarReceitasPelaPrimeiraLetra
  */
 function obterReceitaPeloId(callbackFunction, id) {
-    get("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id, callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id, callbackFunction);
 }
 
 /**
@@ -200,7 +200,7 @@ function obterReceitaPeloId(callbackFunction, id) {
  *      igual o da funcao listarReceitasPelaPrimeiraLetra
  */
 function obterReceitaAleatoria(callbackFunction) {
-    get("https://www.themealdb.com/api/json/v1/1/random.php", callbackFunction)
+    get("https://www.themealdb.com/api/json/v1/1/random.php", callbackFunction);
 }
 
 function carregarDadosTabela(dados) {
@@ -246,11 +246,11 @@ function carregarOpcoesIngredientes(dados) {
 
     if (ingredientes.length < 1) {
         let option = new Option('', '');
-        ingredientes.appendChild(option)
+        ingredientes.appendChild(option);
 
         Array.from(content.meals).forEach(function(el){
             let option = new Option(el.strIngredient, el.strIngredient);
-            ingredientes.appendChild(option)
+            ingredientes.appendChild(option);
         });
     }
 }
@@ -261,11 +261,11 @@ function carregarOpcoesLugares(dados) {
 
     if (lugares.length < 1) {
         let option = new Option('', '');
-        lugares.appendChild(option)
+        lugares.appendChild(option);
 
         Array.from(content.meals).forEach(function(el){
             let option = new Option(el.strArea, el.strArea);
-            lugares.appendChild(option)
+            lugares.appendChild(option);
         });
     }
 }
