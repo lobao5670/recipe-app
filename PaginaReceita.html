@@ -5,45 +5,77 @@
 <head>
     <link  href="./css/Receitas.css" rel="stylesheet">
     <meta charset="utf-8">           <!-- Padrão que permite a visualização do site com diversos tipos de Caractere-->
-    <title> 
-    Receitas   
+    <title>
+        Receitas
     </title>
 </head>
 
 
+<script language="javascript" src="./javascript/servicos.js">
+    window.onload = () => {
+        listarReceitasPelaPrimeiraLetra(carregarDadosTabela, 'a');
+        listarIngredientes(carregarOpcoesIngredientes);
+        listarAreas(carregarOpcoesLugares);
+        listarCategorias(carregarOpcoesCategorias);
+    }
+</script>
 <body>
     <div class="Interface">
-        
+
         <header>                                                    <!-- Cabeçalho da página web contendo uma barra de navegação e uma imagem-->
-        
+
             <div id="topo">                                         <!-- Div usada para agrupar os elementos do topo da página-->
-        
+
                 <figure>
                     <img src="img/ReceitasCeub.png">
                 </figure>
                                                                     <!--Navegação envia para as páginas certas-->
                 <nav><a class="navegacao" href="./Index.html">Início</a> | <a class="navegacao" href="./PaginaReceita.html">Receitas</a> | <a class="navegacao" href="./PaginaContato.html">Contato</a> | <a class="navegacao" href="./PaginaEntrar.html">Entrar</a></nav>    <!-- Barra de itens para a navegação-->
-            
+
             </div>
         </header>
     </div>
-   
+
     <div id="titulo">                               <!-- Indica o Titulo do Trabalho. Escreve ele com fundo laranja-->
         <h1>Lista de Receitas</h1>
     </div>
     <br>
-<!--Implementar o back end aqui                  XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-
-    Tabela com as receitas
-    <script language="javascript">
-            
-        
-    </script>
+    <div>
+        <div>
+            <button onclick="obterReceitaAleatoria(carregarDadosTabela)">Receba uma receita recomendada!</button>
+            <select onchange="selecionarIngredientes(this.id)" name="Ingrediente Principal" id="Ingredientes"></select>
+            <select onchange="selecionarCategorias(this.id)" name="Categoria" id="Categorias"></select>
+            <select onchange="selecionarLugares(this.id)" name="Lugar" id="Lugares"></select>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Foto
+                    </th>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Categoria
+                    </th>
+                    <th>
+                        Lugar
+                    </th>
+                    <th>
+                        Vídeo
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tableData">
+            </tbody>
+        </table>
+    </div>
     <br>
-    
+
     <div class="layout">                <!-- Rodapé do site com mensagem inspiradora-->
         <footer>
-            
+
             <p>“Algumas pessoas acham que foco significa dizer sim para a coisa em que você vai se focar.<br>
                 Mas não é nada disso.<br>
                 Significa dizer não às centenas de outras boas ideias que existem.<br>

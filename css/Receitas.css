@@ -1,8 +1,8 @@
-   
+
         body                                /*Definições do design do corpo da página */
         {
             background-color: #f5f5f5;
-            font-family: Arial;             /* Estamos utilizando Arial pois essa fonte é 
+            font-family: Arial;             /* Estamos utilizando Arial pois essa fonte é
                                            padrão nos sistemas mais utilizados para acesso em rede comercialmente*/
             font-size: 18px;
             opacity: 3;
@@ -75,7 +75,7 @@
            color:#ffffff;
            padding: 5px;
            border-radius: 15px;
-            
+
         }
         .navegacao
         {
@@ -86,11 +86,19 @@
         {
             color:#0080ff;
         }
+        #verMais
+        {
+            color:#0080ff;
+        }
+        #verMais:hover
+        {
+            color:#000000;
+        }
         h1                                  /*Formatação de cada tipo de título da página */
         {
             text-align: center;
             font-size: 28px;
-            
+
         }
         h2
         {
@@ -118,4 +126,18 @@
         label
         {
             color:#0080ff;
+        }
+        table
+        {
+            width: 100%;
+            text-align: center;
+            padding: 1%;
+        }
+        tr
+        {
+            padding: 1%;
+        }
+        td
+        {
+            padding: 1%;
         }

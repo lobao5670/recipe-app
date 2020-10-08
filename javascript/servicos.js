@@ -11,7 +11,7 @@ function get(url, callback) {
 }
 
 /**
- * JSON: 
+ * JSON:
  *  "categories" [
  *      {
  *          "idCategory": identificador da categoria,
@@ -50,7 +50,7 @@ function listarAreas(callbackFunction) {
 }
 
 /**
- * JSON: 
+ * JSON:
  *  "meals" [
  *      {
  *          "idIngredient": identificador do ingrediente,
@@ -140,7 +140,7 @@ function procurarReceitaPeloNome(callbackFunction, name) {
 /**
  * Parametro:
  *      main_ingredient: ingrediente principal
- * JSON: 
+ * JSON:
  * "meals" [
  *      {
  *          "strMeal": nome da receita,
@@ -156,7 +156,7 @@ function filtrarPorIngredientePrincipal(callbackFunction, main_ingredient) {
 /**
  * Parametro:
  *      category: categoria
- * JSON: 
+ * JSON:
  * "meals" [
  *      {
  *          "strMeal": nome da receita,
@@ -172,7 +172,7 @@ function filtrarPorCategoria(callbackFunction, category) {
 /**
  * Parametro:
  *      area: area da receita
- * JSON: 
+ * JSON:
  * "meals" [
  *      {
  *          "strMeal": nome da receita,
@@ -201,4 +201,120 @@ function obterReceitaPeloId(callbackFunction, id) {
  */
 function obterReceitaAleatoria(callbackFunction) {
     get("https://www.themealdb.com/api/json/v1/1/random.php", callbackFunction)
+}
+
+function carregarDadosTabela(dados) {
+    let content = JSON.parse(dados);
+    const tableBody = document.getElementById('tableData');
+    let dataHtml = '';
+
+    for (let receita of content.meals) {
+        var len = Object.keys(receita).length;
+        if (len === 3) {
+            dataHtml += `
+                <tr>
+                    <td>
+                        <img src=${receita.strMealThumb} alt="Thumbnail" width="100" height="100">
+                    </td>
+                    <td>${receita.strMeal}</td>
+                    <td><text id="verMais" onclick="obterReceitaPeloId(carregarDadosTabela, ${receita.idMeal})">Ver Mais</text></td>
+                </tr>`;
+        } else {
+            dataHtml += `
+            <tr>
+                <td>
+                    <img src=${receita.strMealThumb} alt="Thumbnail" width="100" height="100">
+                </td>
+                <td>${receita.strMeal}</td>
+                <td>${receita.strCategory}</td>
+                <td>${receita.strArea}</td>
+                <td>
+                    <a href=${receita.strYoutube}>
+                        <img src="./img/youtube.png" alt="YoutubeImage" width="50" height="30">
+                    </a>
+                </td>
+            </tr>`;
+        }
+    }
+
+    tableBody.innerHTML = dataHtml;
+}
+
+function carregarOpcoesIngredientes(dados) {
+    let content = JSON.parse(dados);
+    var ingredientes = document.getElementById('Ingredientes');
+
+    if (ingredientes.length < 1) {
+        let option = new Option('', '');
+        ingredientes.appendChild(option)
+
+        Array.from(content.meals).forEach(function(el){
+            let option = new Option(el.strIngredient, el.strIngredient);
+            ingredientes.appendChild(option)
+        });
+    }
+}
+
+function carregarOpcoesLugares(dados) {
+    let content = JSON.parse(dados);
+    var lugares = document.getElementById('Lugares');
+
+    if (lugares.length < 1) {
+        let option = new Option('', '');
+        lugares.appendChild(option)
+
+        Array.from(content.meals).forEach(function(el){
+            let option = new Option(el.strArea, el.strArea);
+            lugares.appendChild(option)
+        });
+    }
+}
+
+function carregarOpcoesCategorias(dados) {
+    let content = JSON.parse(dados);
+    var categorias = document.getElementById('Categorias');
+
+    if (categorias.length < 1) {
+        let option = new Option('', '');
+        categorias.appendChild(option);
+
+        Array.from(content.meals).forEach(function(el){
+            let option = new Option(el.strCategory, el.strCategory);
+            categorias.appendChild(option);
+        });
+    }
+}
+
+function selecionarIngredientes(_id) {
+    var seletor = document.getElementById(_id);
+
+    limparCampos(_id);
+    filtrarPorIngredientePrincipal(carregarDadosTabela, seletor.value);
+
+}
+
+function selecionarLugares(_id) {
+    var seletor = document.getElementById(_id);
+
+    limparCampos(_id);
+    filtrarPorArea(carregarDadosTabela, seletor.value);
+
+}
+
+function selecionarCategorias(_id) {
+    var seletor = document.getElementById(_id);
+
+    limparCampos(_id);
+    filtrarPorCategoria(carregarDadosTabela, seletor.value);
+
+}
+
+function limparCampos(_id) {
+    idList = ['Ingredientes','Categorias', 'Lugares']
+    Array.from(idList).forEach(function(el){
+        if (_id !== el) {
+            seletor = document.getElementById(el);
+            seletor.value = null;
+        }
+    });
 }
